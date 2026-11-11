@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SavedRouteImport } from './routes/saved'
+import { Route as PropertySlugRouteImport } from './routes/property/$slug'
+import { Route as RentalsIndexRouteImport } from './routes/rentals/index'
+import { Route as RentalsOhioRouteImport } from './routes/rentals/ohio'
+import { Route as RentalsSanFranciscoRouteImport } from './routes/rentals/san-francisco'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropertySlugRoute = PropertySlugRouteImport.update({
+  id: '/property/$slug',
+  path: '/property/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentalsIndexRoute = RentalsIndexRouteImport.update({
+  id: '/rentals/',
+  path: '/rentals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentalsOhioRoute = RentalsOhioRouteImport.update({
+  id: '/rentals/ohio',
+  path: '/rentals/ohio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RentalsSanFranciscoRoute = RentalsSanFranciscoRouteImport.update({
+  id: '/rentals/san-francisco',
+  path: '/rentals/san-francisco',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/saved': typeof SavedRoute
+  '/property/$slug': typeof PropertySlugRoute
+  '/rentals/ohio': typeof RentalsOhioRoute
+  '/rentals/san-francisco': typeof RentalsSanFranciscoRoute
+  '/rentals/': typeof RentalsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/saved': typeof SavedRoute
+  '/property/$slug': typeof PropertySlugRoute
+  '/rentals/ohio': typeof RentalsOhioRoute
+  '/rentals/san-francisco': typeof RentalsSanFranciscoRoute
+  '/rentals': typeof RentalsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
+  '/saved': typeof SavedRoute
+  '/property/$slug': typeof PropertySlugRoute
+  '/rentals/ohio': typeof RentalsOhioRoute
+  '/rentals/san-francisco': typeof RentalsSanFranciscoRoute
+  '/rentals/': typeof RentalsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/saved'
+    | '/property/$slug'
+    | '/rentals/ohio'
+    | '/rentals/san-francisco'
+    | '/rentals/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/saved'
+    | '/property/$slug'
+    | '/rentals/ohio'
+    | '/rentals/san-francisco'
+    | '/rentals'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/contact'
+    | '/saved'
+    | '/property/$slug'
+    | '/rentals/ohio'
+    | '/rentals/san-francisco'
+    | '/rentals/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  ContactRoute: typeof ContactRoute
+  SavedRoute: typeof SavedRoute
+  PropertySlugRoute: typeof PropertySlugRoute
+  RentalsOhioRoute: typeof RentalsOhioRoute
+  RentalsSanFranciscoRoute: typeof RentalsSanFranciscoRoute
+  RentalsIndexRoute: typeof RentalsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/property/$slug': {
+      id: '/property/$slug'
+      path: '/property/$slug'
+      fullPath: '/property/$slug'
+      preLoaderRoute: typeof PropertySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rentals/': {
+      id: '/rentals/'
+      path: '/rentals'
+      fullPath: '/rentals/'
+      preLoaderRoute: typeof RentalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rentals/ohio': {
+      id: '/rentals/ohio'
+      path: '/rentals/ohio'
+      fullPath: '/rentals/ohio'
+      preLoaderRoute: typeof RentalsOhioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rentals/san-francisco': {
+      id: '/rentals/san-francisco'
+      path: '/rentals/san-francisco'
+      fullPath: '/rentals/san-francisco'
+      preLoaderRoute: typeof RentalsSanFranciscoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  ContactRoute: ContactRoute,
+  SavedRoute: SavedRoute,
+  PropertySlugRoute: PropertySlugRoute,
+  RentalsOhioRoute: RentalsOhioRoute,
+  RentalsSanFranciscoRoute: RentalsSanFranciscoRoute,
+  RentalsIndexRoute: RentalsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
